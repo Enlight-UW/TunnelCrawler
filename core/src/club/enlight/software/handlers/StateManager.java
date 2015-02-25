@@ -22,6 +22,7 @@ public class StateManager {
     {
         this.game = main;
         stateStack= new Stack<State>();
+        pushState(MAIN_MENU);
         level = 0;
     }
 
