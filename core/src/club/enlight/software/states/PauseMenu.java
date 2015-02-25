@@ -1,14 +1,17 @@
-package club.enlight.software;
+package club.enlight.software.states;
+
+import club.enlight.software.handlers.StateManager;
+import club.enlight.software.states.State;
 
 /**
  * Created by jdallman2570 on 2/23/2015.
  */
-public class MainMenu extends State {
+public class PauseMenu extends State {
 
-    public MainMenu(final StateManager sm)
+    public PauseMenu(final StateManager sm)
     {
         super(sm);
-        //Implement buttons and stuff that show up when the game starts.
+        //implement buttons and stuff that show up when the game is paused.
     }
     @Override
     public void handleInput() {

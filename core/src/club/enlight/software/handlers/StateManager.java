@@ -1,4 +1,10 @@
-package club.enlight.software;
+package club.enlight.software.handlers;
+
+import club.enlight.software.states.GameLevel;
+import club.enlight.software.Main;
+import club.enlight.software.states.MainMenu;
+import club.enlight.software.states.PauseMenu;
+import club.enlight.software.states.State;
 
 import java.util.Stack;
 /**
@@ -12,12 +18,12 @@ public class StateManager {
     public static final int GAME_LEVEL = 2;
     public static int level;
     //constructor
-        public StateManager(Main main)
-        {
-    this.game = main;
-            stateStack= new Stack<State>();
-            level = 0;
-        }
+    public StateManager(Main main)
+    {
+        this.game = main;
+        stateStack= new Stack<State>();
+        level = 0;
+    }
 
     public Main getGame() { return game; }
 
@@ -63,11 +69,11 @@ public class StateManager {
     }
 
     //To be used to select the next level to be played.
-    public void setLevel(int lev){
-        level=lev;
+    public void setLevel(int lev) {
+        level = lev;
     }
 
-    //To be used by the club.enlight.software.GameLevel constructor to create a level with the correct attributes.
+    //To be used by the club.enlight.software.states.GameLevel constructor to create a level with the correct attributes.
     public int getLevel()
     {
         return level;

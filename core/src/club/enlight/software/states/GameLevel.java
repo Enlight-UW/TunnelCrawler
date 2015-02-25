@@ -1,4 +1,7 @@
-package club.enlight.software;
+package club.enlight.software.states;
+
+import club.enlight.software.handlers.StateManager;
+import club.enlight.software.states.State;
 
 /**
  * Created by jdallman2570 on 2/23/2015.
