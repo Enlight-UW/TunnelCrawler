@@ -181,7 +181,7 @@ public class Map{
 
 	private void assignDoors(){
 		for(int index = 0; index < mapCount; index+=2){
-			List<Integer> availableD = new ArrayList<>();
+			List<Integer> availableD = new ArrayList<Integer>();
 			for(int i = 0; i < maxD; i++){
 				if(mapDList[index][i] == Door.NO_DOOR){
 					availableD.add(i);
@@ -218,7 +218,7 @@ public class Map{
 		else
 		{
 			//Make a list of the indexes of non-removed rooms
-			List<Integer> openRooms = new ArrayList<>();
+			List<Integer> openRooms = new ArrayList<Integer>();
 			for(int index = 0; index < mapCount; index++){
 				if(mapDCount[index] > 0)
 					openRooms.add(index);
@@ -309,7 +309,7 @@ public class Map{
 		return remNeighborCount;
 	}
 	private List<Integer> remNeighborList(int index){
-		List<Integer> remNeighbors = new ArrayList<>();
+		List<Integer> remNeighbors = new ArrayList<Integer>();
 
 		boolean up = mapDList[index][0] != Door.INVALID_DOOR;
 		boolean right = mapDList[index][1] != Door.INVALID_DOOR;
@@ -401,7 +401,7 @@ public class Map{
 		}
 
 		//Adds all non-removed rooms to a list, then remove the starting room
-		List<Integer> allRooms = new ArrayList<>();
+		List<Integer> allRooms = new ArrayList<Integer>();
 		for(int i = 0; i < mapCount; i++){
 			if(mapDCount[i] > 0){
 				allRooms.add(i);
@@ -409,11 +409,11 @@ public class Map{
 		}
 		allRooms.remove(allRooms.indexOf(sIndex));
 
-		List<Integer> foundRooms = new ArrayList<>();
+		List<Integer> foundRooms = new ArrayList<Integer>();
 		foundRooms.add(sIndex);
 
 		//Make a queue for what rooms to check then add the starting room
-		Queue<Integer> checkList = new LinkedList<>();
+		Queue<Integer> checkList = new LinkedList<Integer>();
 		checkList.add(sIndex);
 
 		//While there are rooms to check, check the rooms
@@ -455,7 +455,7 @@ public class Map{
 	}
 
 	private void pickEndIndex(){
-		List<Integer> validEnds = new ArrayList<>();
+		List<Integer> validEnds = new ArrayList<Integer>();
 		int farthestPoint = 0;
 		int farthestDist = 0;
 

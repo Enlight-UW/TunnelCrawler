@@ -1,0 +1,258 @@
+
+testAtlasSecond.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+frame
+  rotate: false
+  xy: 2, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 0
+frame
+  rotate: false
+  xy: 2, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 35
+frame
+  rotate: false
+  xy: 2, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 1
+frame
+  rotate: false
+  xy: 119, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 2
+frame
+  rotate: false
+  xy: 2, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 3
+frame
+  rotate: false
+  xy: 119, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 4
+frame
+  rotate: false
+  xy: 236, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 5
+frame
+  rotate: false
+  xy: 2, 2
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 6
+frame
+  rotate: false
+  xy: 119, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 7
+frame
+  rotate: false
+  xy: 236, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 8
+frame
+  rotate: false
+  xy: 353, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 9
+frame
+  rotate: false
+  xy: 119, 2
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 10
+frame
+  rotate: false
+  xy: 236, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 11
+frame
+  rotate: false
+  xy: 353, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 12
+frame
+  rotate: false
+  xy: 470, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 13
+frame
+  rotate: false
+  xy: 470, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 18
+frame
+  rotate: false
+  xy: 470, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 23
+frame
+  rotate: false
+  xy: 236, 2
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 14
+frame
+  rotate: false
+  xy: 236, 2
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 19
+frame
+  rotate: false
+  xy: 236, 2
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 24
+frame
+  rotate: false
+  xy: 353, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 15
+frame
+  rotate: false
+  xy: 353, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 25
+frame
+  rotate: false
+  xy: 353, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 20
+frame
+  rotate: false
+  xy: 470, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 16
+frame
+  rotate: false
+  xy: 470, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 22
+frame
+  rotate: false
+  xy: 470, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 17
+frame
+  rotate: false
+  xy: 470, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 26
+frame
+  rotate: false
+  xy: 470, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 21
+frame
+  rotate: false
+  xy: 587, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 27
+frame
+  rotate: false
+  xy: 353, 2
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 28
+frame
+  rotate: false
+  xy: 470, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 29
+frame
+  rotate: false
+  xy: 587, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 30
+frame
+  rotate: false
+  xy: 704, 173
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 31
+frame
+  rotate: false
+  xy: 470, 2
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 32
+frame
+  rotate: false
+  xy: 587, 59
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 33
+frame
+  rotate: false
+  xy: 704, 116
+  size: 115, 55
+  orig: 115, 55
+  offset: 0, 0
+  index: 34
