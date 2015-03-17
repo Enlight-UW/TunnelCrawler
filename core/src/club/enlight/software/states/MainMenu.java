@@ -30,7 +30,7 @@ public class MainMenu extends State {
     {   super(sm);
         stage = new Stage();
         ImageButton.ImageButtonStyle optionsButtonStyle = new ImageButton.ImageButtonStyle();
-        optionsButtonStyle.up = new TextureRegionDrawable( new TextureRegion(new Texture("Button/Options.jpg")));
+        optionsButtonStyle.up = new TextureRegionDrawable( new TextureRegion(new Texture(Gdx.files.internal("Options.jpg"))));
         optionsButtonStyle.down = new TextureRegionDrawable(new TextureRegion(new Texture("Button/Options click.jpg")));
         optionsButtonStyle.imageOver = new TextureRegionDrawable(new TextureRegion(new Texture("Button/Options hover.jpg")));
         final ImageButton optionsButton = new ImageButton(optionsButtonStyle);
