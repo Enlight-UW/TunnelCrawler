@@ -1,20 +1,14 @@
 package club.enlight.software.states;
 
 import club.enlight.software.handlers.StateManager;
-import club.enlight.software.states.State;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
@@ -72,7 +66,7 @@ public class MainMenu extends State {
         stage.addActor(loadButton);
         stage.addActor(exitButton);
 
-        Gdx.input.setInputProcessor(stage);
+        //Gdx.input.setInputProcessor(stage);
     }
     @Override
     public void handleInput() {
@@ -81,7 +75,7 @@ public class MainMenu extends State {
 
     @Override
     public void update(float dt) {
-    stage.act(dt);
+        stage.act(dt);
     }
 
     @Override
@@ -92,11 +86,11 @@ public class MainMenu extends State {
         renderer.begin(ShapeRenderer.ShapeType.Filled);
         renderer.box(0,0,0,20,20,0);
         renderer.end();
-
+        stage.getBatch().end();
     }
 
     @Override
     public void dispose() {
-    stage.dispose();
+        stage.dispose();
     }
 }
