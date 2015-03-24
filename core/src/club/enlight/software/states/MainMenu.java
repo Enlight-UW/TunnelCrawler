@@ -22,58 +22,79 @@ import static com.badlogic.gdx.graphics.Texture.*;
  */
 public class MainMenu extends State {
     OrthographicCamera camera;
-    ShapeRenderer renderer;
     Stage stage;
 
     public MainMenu(final StateManager sm)
-    {   super(sm);
+    {
+        super(sm);
+
+        float width = Gdx.graphics.getWidth();
+        float height = Gdx.graphics.getHeight();
+        float buttonWidthDivider = 1.f / 14.f;
+        float buttonPositionDivider = 1.f / 14.f;
+        float heightOfButton = (7.f / 50.f) * height;
+
         stage = new Stage();
+
+        // Atlas for the buttons
         TextureAtlas atlas;
         atlas = new TextureAtlas(Gdx.files.internal("Button/ButtonPack.atlas"));
+
+        // Set up Options Button
         ImageButton.ImageButtonStyle optionsButtonStyle = new ImageButton.ImageButtonStyle();
         optionsButtonStyle.up =  new TextureRegionDrawable(atlas.findRegion("Options"));
         optionsButtonStyle.down = new TextureRegionDrawable(atlas.findRegion("OptionsClick"));
-        optionsButtonStyle.imageOver = new TextureRegionDrawable(atlas.findRegion("OptionsHover"));
-        final ImageButton optionsButton = new ImageButton(optionsButtonStyle);
-        optionsButton.setSize(4/14*Gdx.graphics.getWidth(), 7 / 50 * Gdx.graphics.getHeight());
-        optionsButton.setPosition(7 / 14 * Gdx.graphics.getWidth(), 0);
+        optionsButtonStyle.over = new TextureRegionDrawable(atlas.findRegion("OptionsHover"));
 
+        ImageButton optionsButton = new ImageButton(optionsButtonStyle);
+        optionsButton.setSize(4.f * buttonWidthDivider * width, heightOfButton);
+        optionsButton.setPosition( 7.f * buttonPositionDivider * width, 0);
+
+        // Set up Play Button
         ImageButton.ImageButtonStyle playButtonStyle = new ImageButton.ImageButtonStyle();
         playButtonStyle.up = new TextureRegionDrawable(atlas.findRegion("Play"));
         playButtonStyle.down = new TextureRegionDrawable(atlas.findRegion("PlayClick"));
-        playButtonStyle.imageOver = new TextureRegionDrawable(atlas.findRegion("PlayHover"));
-        final ImageButton playButton = new ImageButton(playButtonStyle);
-        playButton.setSize(3 / 14 * Gdx.graphics.getWidth(), 7 / 50 * Gdx.graphics.getHeight());
+        playButtonStyle.over = new TextureRegionDrawable(atlas.findRegion("PlayHover"));
+
+        ImageButton playButton = new ImageButton(playButtonStyle);
+        playButton.setSize( 3.f * buttonWidthDivider * width, heightOfButton);
         playButton.setPosition(0, 0);
 
+        // Set up Exit Button
         ImageButton.ImageButtonStyle exitButtonStyle = new ImageButton.ImageButtonStyle();
         exitButtonStyle.up = new TextureRegionDrawable( atlas.findRegion("Exit"));
         exitButtonStyle.down = new TextureRegionDrawable(atlas.findRegion("ExitClick"));
-        exitButtonStyle.imageOver = new TextureRegionDrawable(atlas.findRegion("ExitHover"));
-        final ImageButton exitButton = new ImageButton(exitButtonStyle);
-        exitButton.setSize(4 / 14 * Gdx.graphics.getWidth(), 7 / 50 * Gdx.graphics.getHeight());
-        exitButton.setPosition(3/14*Gdx.graphics.getWidth(), 0);
+        exitButtonStyle.over = new TextureRegionDrawable(atlas.findRegion("ExitHover"));
 
+        final ImageButton exitButton = new ImageButton(exitButtonStyle);
+        exitButton.setSize(3.f * buttonWidthDivider * width, heightOfButton);
+        exitButton.setPosition(3.5f * buttonPositionDivider * width, 0);
+
+        // Set up Load Button
         ImageButton.ImageButtonStyle loadButtonStyle = new ImageButton.ImageButtonStyle();
         loadButtonStyle.up = new TextureRegionDrawable(atlas.findRegion("Load"));
         loadButtonStyle.down = new TextureRegionDrawable(atlas.findRegion("LoadClick"));
-        loadButtonStyle.imageOver = new TextureRegionDrawable(atlas.findRegion("LoadHover"));
+        loadButtonStyle.over = new TextureRegionDrawable(atlas.findRegion("LoadHover"));
+
         final ImageButton loadButton = new ImageButton(loadButtonStyle);
-        loadButton.setSize(3 / 14 * Gdx.graphics.getWidth(), 7 / 50 * Gdx.graphics.getHeight());
-        loadButton.setPosition(11/14*Gdx.graphics.getWidth(), 0);
+        loadButton.setSize(3.f * buttonWidthDivider * width, heightOfButton);
+        loadButton.setPosition(11.f * buttonPositionDivider * width, 0);
 
+        // Set up Background
         Image background = new Image(new Texture("Menu Screen/BG1.png"));
-        //Implement buttons and stuff that show up when the game starts.
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        renderer = new ShapeRenderer();
+        background.setSize(width, height);
 
+        //add all objects to the stage
         stage.addActor(background);
         stage.addActor(playButton);
         stage.addActor(optionsButton);
         stage.addActor(loadButton);
         stage.addActor(exitButton);
 
-        //Gdx.input.setInputProcessor(stage);
+        //Implement buttons and stuff that show up when the game starts.
+        camera = new OrthographicCamera(width, height);
+
+        Gdx.input.setInputProcessor(stage);
     }
     @Override
     public void handleInput() {
@@ -88,12 +109,6 @@ public class MainMenu extends State {
     @Override
     public void render() {
         stage.draw();
-        stage.getBatch().begin();
-        renderer.setColor(Color.CYAN);
-        renderer.begin(ShapeRenderer.ShapeType.Filled);
-        renderer.box(0,0,0,20,20,0);
-        renderer.end();
-        stage.getBatch().end();
     }
 
     @Override
