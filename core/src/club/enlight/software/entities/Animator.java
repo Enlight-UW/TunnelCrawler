@@ -1,4 +1,4 @@
-package club.enlight.software.handlers;
+package club.enlight.software.entities;
 
 /**
  * Created by arel on 3/11/15.
@@ -13,7 +13,7 @@ public class Animator {
     private Animation animation;
     private int xLocation = 0;
     private int yLocation = 0;
-
+    
     public Animator(String fileName, int x, int y) {
         textureAtlas = new TextureAtlas(Gdx.files.internal(fileName));
         animation = new Animation(1/15f,textureAtlas.getRegions()); //This 20 is the frames per second
