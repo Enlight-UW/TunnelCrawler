@@ -17,8 +17,8 @@ public class Room {
 		roomWidth = 20;
 		roomHeight = 16;
 
-        isExit = map.isExit(roomIndex);
-        isLever = true;
+        isExit = map.isEnd(roomIndex);
+        isLever = map.isLever(roomIndex);
 
 		this.placeTheCharacter(enteredFrom);
         this.placeEnemies(enemyCount);
