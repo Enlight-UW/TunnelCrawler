@@ -1,12 +1,11 @@
-package club.enlight.software.handlers;
+package club.enlight.software.entities;
 
 import java.util.*;
-import club.enlight.software.entities.*;
 
 public class Room {
 	
 	//Constructors
-	public Room(int roomIndex, Map map, int enteredFrom, int enemyCount){
+	public Room(int roomIndex, club.enlight.software.handlers.Map map, int enteredFrom, int enemyCount, int columnCount){
 		//Get the doors
 		topDoor = map.getDoor(roomIndex, 0);
 		rightDoor = map.getDoor(roomIndex, 1);
@@ -21,14 +20,24 @@ public class Room {
         isLever = map.isLever(roomIndex);
 
 		this.placeTheCharacter(enteredFrom);
+        if(isExit)
+            this.placeStairs();
+        if(isLever)
+            this.placeLever();
+
         this.placeEnemies(enemyCount);
+
+        if(columnCount > roomWidth * roomHeight / 4){
+            columnCount = roomWidth * roomHeight / 4;
+        }
+        this.placeColumns(columnCount);
 	}
 	
 	//Fields
-	Map.Door topDoor;
-    Map.Door bottomDoor;
-    Map.Door leftDoor;
-    Map.Door rightDoor;
+	club.enlight.software.handlers.Map.Door topDoor;
+    club.enlight.software.handlers.Map.Door bottomDoor;
+    club.enlight.software.handlers.Map.Door leftDoor;
+    club.enlight.software.handlers.Map.Door rightDoor;
 	
 	final boolean isExit;
 	final boolean isLever;
@@ -37,7 +46,9 @@ public class Room {
 	final int roomHeight;
 	
 	List<Creature> creatures = new ArrayList<Creature>();
-	
+
+
+
 	//Room creation methods
 	private void placeTheCharacter(int enteredFrom){
 		int playerStartX;
@@ -65,8 +76,18 @@ public class Room {
 		}
 		creatures.add(new Creature(playerStartX, playerStartY, Creature.Direction.DOWN, 1));
 	}
-	
+
+    private void placeStairs(){
+    }
+
+    private void placeLever(){
+    }
+
 	private void placeEnemies(int enemyCount){
+        //TODO: Place some enemies when some exist
+    }
+
+    private void placeColumns(int columnCount){
 
     }
 }
