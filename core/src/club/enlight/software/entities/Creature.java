@@ -9,7 +9,7 @@ public class Creature {
     }
 
 	//Constructor
-	public Creature(int startX, int startY, Direction startFacing, double creatureVelocity){
+	public Creature(int startX, int startY, Direction startFacing, double creatureVelocity) {
 		xPosition = startX;
 		yPosition = startY;
 		facing = startFacing;
