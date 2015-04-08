@@ -45,7 +45,7 @@ public class Room {
 	final int roomWidth;
 	final int roomHeight;
 	
-	List<Creature> creatures = new ArrayList<Creature>();
+	List<GameObject> creatures = new ArrayList<GameObject>();
 
 
 
@@ -74,7 +74,9 @@ public class Room {
 			playerStartX = roomWidth / 2;
 			playerStartY = roomWidth / 2;
 		}
-		creatures.add(new Creature(playerStartX, playerStartY, Creature.Direction.DOWN, 1));
+
+        //add monsters here
+		//creatures.add(new GameObject(playerStartX, playerStartY, GameObject.Direction.DOWN, 1));
 	}
 
     private void placeStairs(){

@@ -30,6 +30,7 @@ public class StateManager {
 
     //update only the top state in the stack
     public void update(float dt) {
+        stateStack.peek().handleInput();
         stateStack.peek().update(dt);
     }
 
