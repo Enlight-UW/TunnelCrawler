@@ -1,6 +1,7 @@
 package club.enlight.software.entities.player;
 
 import club.enlight.software.entities.GameObject;
+import club.enlight.software.states.GameLevel;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
@@ -9,84 +10,95 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+
 /**
  * Created by Kenneth on 3/24/15.
  */
 public class Player extends GameObject {
     float velocity;
-    boolean up;
-    boolean down;
-    boolean right;
-    boolean left;
+    Vector2 direction;
+    List<Bullet> bullets = new ArrayList();
+    float coolDown;
 
     // temporary shape for player
     ShapeRenderer renderer;
 
-    public Player(Vector2 position, Camera camera)
+    public Player(GameLevel owner, Vector2 position, Camera camera)
     {
-        super(position);
+        super(owner, position);
 
         // set velocity to the player and make it stationary
         this.velocity = 100.f;
-        up = false;
-        down = false;
-        left = false;
-        right = false;
-
-        renderer = new ShapeRenderer();
-        renderer.setProjectionMatrix(camera.combined);
+        this.direction = new Vector2();
+        this.renderer = new ShapeRenderer();
+        this.renderer.setProjectionMatrix(camera.combined);
+        this.coolDown = -1;
     }
 
     @Override
     public void update(float dt)
     {
-        if(up)
-        {
-            position.add(0, dt * velocity);
-        }
-
-        if(down)
-        {
-            position.add(0, -dt * velocity);
-        }
-
-        if(left)
-        {
-            position.add(-dt * velocity, 0);
-        }
-
-        if(right)
-        {
-            position.add(dt * velocity, 0);
+        coolDown -= dt;
+        position.add(direction.x * velocity * dt, direction.y * velocity * dt);
+        Iterator<Bullet> bulletIterator = bullets.iterator();
+        while (bulletIterator.hasNext()) {
+            Bullet bullet = bulletIterator.next();
+            bullet.update(dt);
+            if (bullet.isExpired()) {
+                bullet.dispose();
+                bulletIterator.remove();
+            }
         }
     }
 
     @Override
     public void handleInput()
     {
-        up = false;
-        down = false;
-        left = false;
-        right = false;
+        direction.set(0,0);
 
         if(Gdx.input.isKeyPressed(Input.Keys.W))
         {
-            up = true;
+            direction.add(0,1);
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.A))
         {
-            left = true;
+            direction.add(-1,0);
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.D))
         {
-            right = true;
+            direction.add(1,0);
         }
 
         if(Gdx.input.isKeyPressed(Input.Keys.S))
         {
-            down = true;
+            direction.add(0,-1);
+        }
+        direction.nor();
+
+        //Bullet direction- Change keys as necessary
+        if (coolDown < 0) {
+            if (Gdx.input.isKeyPressed(Input.Keys.I)) {
+                bullets.add(new Bullet(owner, new Vector2(position), renderer, new Vector2(0, 1)));
+                coolDown = 0.5f;
+            }
+            else if (Gdx.input.isKeyPressed(Input.Keys.J)) {
+                bullets.add(new Bullet(owner, new Vector2(position), renderer, new Vector2(-1, 0)));
+                coolDown = 0.5f;
+            }
+            else if (Gdx.input.isKeyPressed(Input.Keys.L)) {
+                bullets.add(new Bullet(owner, new Vector2(position), renderer, new Vector2(1, 0)));
+                coolDown = 0.5f;
+            }
+            else if (Gdx.input.isKeyPressed(Input.Keys.K)) {
+                bullets.add(new Bullet(owner, new Vector2(position), renderer, new Vector2(0, -1)));
+                coolDown = 0.5f;
+            }
         }
     }
 
@@ -98,6 +110,10 @@ public class Player extends GameObject {
         renderer.circle(position.x, position.y, 15.0f);
         System.out.println("Position: " + position.x + "," + position.y);
         renderer.end();
+
+        for (Bullet bullet : bullets) {
+            bullet.render();
+        }
     }
 
     @Override

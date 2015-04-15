@@ -11,14 +11,18 @@ import com.badlogic.gdx.math.Vector2;
  */
 public class GameLevel extends State {
     Player player;
+    int width;
+    int height;
 
     public GameLevel(final StateManager sm){
         super(sm);
         //Create a level (or load one) using getLevel from sm and Ryan's level generator, along with a room generator,
         //then play the level
-        
+
         Vector2 centerOfScreen = new Vector2(0,0); // Orthographic camera centers screen at (0,0)
-        player = new Player(centerOfScreen, new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
+        width = Gdx.graphics.getWidth();
+        height = Gdx.graphics.getHeight();
+        player = new Player(this, centerOfScreen, new OrthographicCamera(width, height));
     }
     @Override
     public void handleInput() {
@@ -38,5 +42,13 @@ public class GameLevel extends State {
     @Override
     public void dispose() {
 
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }
