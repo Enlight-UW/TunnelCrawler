@@ -7,6 +7,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 
@@ -19,10 +20,11 @@ import java.util.List;
  * Created by Kenneth on 3/24/15.
  */
 public class Player extends GameObject {
-    float velocity;
-    Vector2 direction;
-    List<Bullet> bullets = new ArrayList();
-    float coolDown;
+    public float velocity;
+    public Vector2 direction;
+    public List<Bullet> bullets = new ArrayList();
+    public float coolDown;
+    public int health;
 
     // temporary shape for player
     ShapeRenderer renderer;
@@ -37,6 +39,8 @@ public class Player extends GameObject {
         this.renderer = new ShapeRenderer();
         this.renderer.setProjectionMatrix(camera.combined);
         this.coolDown = -1;
+
+        this.health = 100;
     }
 
     @Override
