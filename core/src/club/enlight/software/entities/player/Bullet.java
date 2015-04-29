@@ -29,7 +29,7 @@ public class Bullet extends GameObject{
         this.renderer = renderer;
         this.velocity = 300.f;
         this.direction = direction;
-        this.timeToLive = 0.5f;
+        this.timeToLive = 2.0f;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Bullet extends GameObject{
         renderer.end();
     }
     public boolean isExpired() {
-        return this.timeToLive < 0 || this.isOutOfBounds();
+        return this.isOutOfBounds();
     }
     @Override
     public void dispose() {
